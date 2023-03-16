@@ -1,8 +1,9 @@
 .linkedin-refer-btn {
-    border: 1px solid #0b66c2;
-    border-radius: 21px;
-    padding: 0 16px;
-    color: #0b66c2;
+    border: 1px solid #391ab5;
+    background: #5632E7;
+    border-radius: 24px;
+    padding: 0 17px;
+    color: #ffffff;
     font-weight: 400;
     margin-left: auto;
 }
@@ -27,8 +28,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 1rem 1.5rem;
-    width: 24rem;
+    padding: 1.2rem 1.5rem 1rem 1.5rem;
+    width: 36rem;
     border-radius: 0.5rem;
 }
 .close-button {
@@ -48,4 +49,62 @@
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+.h3refer
+{
+    font-weight: 500;
+    color: #252F3F;
+    text-align: center;
+}
+.refer-email
+{
+    height: 38px !important;
+    border: 1px solid #dedede !important;
+    outline: none;
+    box-shadow: 1px 2px 3px #eaeaeaaa !important;
+    border-radius: 6px !important;
+}
+.refer-submit
+{
+    background: #5632E7;
+    width: 100%;
+    padding: 8px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-top: 12px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+.refer-submit:hover,.refer-submit:focus
+{
+    background: #3f1ebf;
+}
+.close-button
+{
+    background: none;
+    font-size: 28px;
+    color: #bababa;
+    font-weight: 300;
+}
+.close-button:hover
+{
+    background: none;
+    font-size: 28px;
+    color: #999999;
+    font-weight: 300;
+}
+.captioncss
+{
+    text-align: center;
+    font-size: 14px;
+    color: #6B7280;
+    margin-top: 4px;
+    margin-bottom: 20px;
+}
+.imgt
+{
+    width: 180px;
+    margin: 0 auto;
+    display: block;
 }
