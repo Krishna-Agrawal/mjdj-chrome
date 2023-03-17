@@ -1,15 +1,13 @@
 console.log("Hello from background script!");
-let userId = null;
+let userId = 153;
 let email = 'krishna@joveo.com';
 
 // create user on initial load
 chrome.runtime.onInstalled.addListener(({ reason }) => {
-  // chrome.storage.sync.get(['email'], function(items) {
-  //   console.log('Settings retrieved', items);
-  // });
   if (
-    reason === chrome.runtime.OnInstalledReason.INSTALL ||
-    reason === chrome.runtime.OnInstalledReason.UPDATE
+    reason === chrome.runtime.OnInstalledReason.INSTALL 
+    // ||
+    // reason === chrome.runtime.OnInstalledReason.UPDATE
   ) {
     fetch("https://mojojojo.prod.joveo.com/initCandidate", {
       method: "POST",
@@ -46,6 +44,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
   }
   
 
+  console.log(changeInfo)
   if (changeInfo.url) {
     chrome.tabs.sendMessage( tabId, {
       message: 'url_change',
@@ -66,9 +65,33 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     console.log(request)
     referFriend(request.data)
   } 
+  if (request.msg === "save-form") {
+    console.log(request)
+    saveForm(request.url, request.data, request.job_data)
+  } 
   return true;
 });
 
+//save form
+const saveForm = (url, data, job_data) => {
+  console.log(url, data)
+  fetch(`https://mojojojo.prod.joveo.com/candidates/${userId}/forms`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      url: url,
+      percentComplete: 10,
+      data: data,
+      job_data: job_data
+    }),
+  })
+    .then((response) => response.json())
+    .then((resp) => {
+      console.log(resp);
+    });
+}
 
 //refer friend
 const referFriend = (data) => {
